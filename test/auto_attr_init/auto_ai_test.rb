@@ -1,5 +1,4 @@
 # coding=utf-8
-# license: Public Domain
 
 unittest 'AutoAttrInit can set instance variables' do
   class CReq

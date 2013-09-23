@@ -1,5 +1,4 @@
 # coding=utf-8
-# license: Public Domain
 
 # Rubyで、D言語風にassertionを直書きする簡易unit test - c4se記：さっちゃんですよ☆
 # http://c4se.hatenablog.com/entry/2013/08/15/022137

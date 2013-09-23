@@ -1,5 +1,4 @@
 # coding=utf-8
-# license: Public Domain
 
 module AutoAttrInit
   # Utility refinments for this AutoAttrInit.

@@ -1,5 +1,4 @@
 # coding=utf-8
-# license: Public Domain
 
 using AutoAttrInit::Refinments
 unittest 'Array#find_deep' do
