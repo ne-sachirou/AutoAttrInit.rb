@@ -1,5 +1,4 @@
 # coding=utf-8
-# license: Public Domain
 
 require 'bundler/gem_tasks'
 
