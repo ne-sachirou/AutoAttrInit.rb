@@ -37,7 +37,7 @@ module AutoAttrInit
     # methodの、params部のS式 (SExp) を取得する。
     def detect_params_sexp method
       params_sexp =
-        Ripper.sexp(method.source_code).
+        Ripper.sexp_raw(method.source_code).
         find_deep{|sexp| sexp.has_method?(:[]) && sexp[0] == :params }.
         select{|sexp| sexp != nil }
       params_sexp = params_sexp[1..-1].inject [] do |accm, sexp|
@@ -52,12 +52,7 @@ module AutoAttrInit
 
     # S式からsource code文字列を復元する。
     def sorcerer sexp
-      target = sexp[1]
-      if target[0] == :string_literal
-        %Q{"#{Sorcerer.source target[1][1]}"}
-      else
-        Sorcerer.source target
-      end
+      Sorcerer.source sexp[1]
     end
   end
 end
