@@ -1,7 +1,5 @@
 # coding=utf-8
 
-using AutoAttrInit::Refinments
-
 module AutoAttrInit
   # initialize methodのaspect。
   # See AutoAttrInit::AutoAi
