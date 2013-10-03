@@ -110,9 +110,20 @@ class TestAutoAttrInit < Test::Unit::TestCase
       end
       auto_attr_init
     end
-
     c_keyopt = ckeyopt.new
     assert_equal 3, c_keyopt.a
     assert_equal 'p1d', c_keyopt.p1
+  end
+
+  # https://github.com/ne-sachirou/AutoAttrInit.rb/issues/3
+  def test_AutoAttrInit_by_atmark_prefix
+    cat = Class.new do
+      attr_reader :a, :b, :c
+      def initialize —a, b, —c = 9; end
+    end
+    c_at = cat.new 2, 3
+    assert_equal 2, c_at.a
+    assert_nil c_at.b
+    assert_equal 9, c_at.c
   end
 end
