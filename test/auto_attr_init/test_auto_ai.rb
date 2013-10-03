@@ -119,7 +119,7 @@ class TestAutoAttrInit < Test::Unit::TestCase
   def test_AutoAttrInit_by_atmark_prefix
     cat = Class.new do
       attr_reader :a, :b, :c
-      def initialize —a, b, —c = 9; end
+      def initialize ï¼ a, b, ï¼ c = 9; end
     end
     c_at = cat.new 2, 3
     assert_equal 2, c_at.a
