@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = AutoAttrInit::VERSION
   spec.authors       = ['ne_Sachirou']
   spec.email         = ['utakata.c4se@gmail.com']
-  spec.description   = %q{Dart like "automatic field initialization" in Ruby.}
-  spec.summary       = %q{Dart-lang's constructor has "automatic field initialization". I implement a similar one in Ruby.}
+  spec.description   = %q{Auto attribute initialization.}
+  spec.summary       = %q{Dart and CoffeeScript like "automatic field initialization" in Ruby.}
   spec.homepage      = 'https://github.com/ne-sachirou/AutoAttrInit.rb'
   spec.license       = 'Public Domain'
 
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
+  spec.required_ruby_version = '>= 2.0.0'
   spec.add_dependency 'aspectr'
   spec.add_dependency 'sorcerer'
   spec.add_development_dependency 'bundler', '~> 1.3'
