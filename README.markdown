@@ -2,6 +2,15 @@
 AUTHOR: ne_Sachirou &lt;utakata.c4se@gmail.com&gt;
 DATE: 2013-09-23</pre>
 
+Install
+=======
+
+```sh
+gem install auto_attr_init
+```
+
+From [RubyGems.org/auto_attr_init](https://rubygems.org/gems/auto_attr_init)
+
 AutoAttrInit
 ============
 
