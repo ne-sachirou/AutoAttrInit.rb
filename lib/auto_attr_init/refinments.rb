@@ -16,11 +16,11 @@ module AutoAttrInit
       # @return [String]
       def source_code
         source = ''
-        File.open source_location[0], 'r' do |f|
+        File.open source_location[0], 'r:utf-8' do |f|
           lines = f.read.each_line.to_a
           source = lines[source_location[1] - 1]
           (source_location[1] .. lines.length - 1).each do |i|
-            break if Ripper.sexp(source, source_location[0], source_location[1]) != nil
+            break if Ripper.sexp_raw(source, source_location[0], source_location[1])
             source += lines[i]
           end
         end

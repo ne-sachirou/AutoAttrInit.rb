@@ -12,16 +12,17 @@ module AutoAttrInit
   # RubyistたちのDRY症候群との戦い
   # http://melborne.github.io/2013/09/27/auto-attr-set-in-ruby/
   module AutoAiAutoSetter
+    @@auto_attr_init_finished = false
+
     def new *args, &block
-      names = self.instance_method(:initialize).parameters.
-        collect{|param| param[1].to_s }.
-        select{|name| name =~ /^＠/ }.
-        collect{|name| :"#{name.sub /^＠/, ''}" }
-      unless names.empty?
-        object = allocate
-        params = DetectParams.new(self).detect
-        param_args = AssignParams.new(object).assign args, params
-        names.each{|name| object.instance_variable_set :"@#{name}", param_args[name] }
+      unless @@auto_attr_init_finished
+        names = self.instance_method(:initialize).parameters.
+          collect{|param| param[1] }.
+          select{|name| name.to_s =~ /^＠/ }
+        unless names.empty?
+          auto_attr_init *names
+          @@auto_attr_init_finished = true
+        end
       end
       super *args, &block
     end

@@ -14,7 +14,9 @@ module AutoAttrInit
 
     def pre_initialize method, object, exitstatus, *args
       param_args = AssignParams.new(object).assign args, @params
-      @names.each{|name| object.instance_variable_set :"@#{name}", param_args[name] }
+      @names.each{|name|
+        object.instance_variable_set :"@#{name.to_s.sub /^＠/, ''}", param_args[name]
+      }
     end
   end
 end
